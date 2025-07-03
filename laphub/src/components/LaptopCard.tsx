@@ -17,7 +17,7 @@ export default function LaptopCard({ name, brand, price, image, description }: P
         <p className="text-sm text-muted-foreground">{brand}</p>
       </CardHeader>
       <CardContent>
-        <div className="w-full h-48 relative mb-4">
+        {/* <div className="w-full h-48 relative mb-4">
           <Image
             src={image}
             alt={name}
@@ -25,7 +25,7 @@ export default function LaptopCard({ name, brand, price, image, description }: P
             className="object-cover rounded-md"
             sizes="(max-width: 768px) 100vw, 33vw"
           />
-        </div>
+        </div> */}
         <p className="text-sm text-muted-foreground mb-2">{description}</p>
         <p className="text-primary font-semibold text-lg">{price}</p>
       </CardContent>
