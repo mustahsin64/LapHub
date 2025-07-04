@@ -1,5 +1,8 @@
 import LaptopCard from "@/components/LaptopCard";
 import { Laptop } from "./type";
+import LaptopList from "@/components/LaptopList";
+
+
 
 const url = "https://laphub-backend.onrender.com/api/laptops";
 const driveUrl = "https://drive.google.com/uc?export=download&id=1AKVuz1MAdh-y7TZW07oOACIbSb_uR7ee";
@@ -28,15 +31,7 @@ export default async function Home() {
     <main className="min-h-screen p-6 bg-gray-100 dark:bg-gray-900">
       <h1 className="text-3xl font-bold mb-8 text-center">Latest Laptops</h1>
 
-      {laptops.length === 0 ? (
-        <p className="text-center text-gray-400">No laptops available at the moment.</p>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {laptops.map((laptop) => (
-            <LaptopCard key={laptop.id} {...laptop} />
-          ))}
-        </div>
-      )}
+      <LaptopList laptops={laptops}/>
     </main>
   );
 }
