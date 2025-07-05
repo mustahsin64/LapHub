@@ -28,16 +28,15 @@ const LaptopList = () => {
       ) : (
         <>
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="show"
-          className="mx-auto w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
-        >
-          
-          {filteredLaptops.map((laptop) => (
-            <LaptopCard key={laptop.id} {...laptop} />
-          ))}
-        </motion.div>
+  variants={containerVariants}
+  initial="hidden"
+  animate="show"
+  className="mx-auto max-w-7xl px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+>
+  {filteredLaptops.map((laptop) => (
+    <LaptopCard key={laptop.id} {...laptop} />
+  ))}
+</motion.div>
         </>
       )}
     </div>
