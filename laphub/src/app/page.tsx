@@ -3,18 +3,21 @@ import { Laptop } from "./type";
 import LaptopList from "@/components/LaptopList";
 import Navbar from "@/components/Navbar";
 
-
-
 const url = "https://laphub-backend.onrender.com/api/laptops";
-const driveUrl = "https://drive.google.com/uc?export=download&id=1AKVuz1MAdh-y7TZW07oOACIbSb_uR7ee";
+const driveUrl =
+  "https://drive.google.com/uc?export=download&id=1AKVuz1MAdh-y7TZW07oOACIbSb_uR7ee";
 
-import { promises as fs } from 'fs';
-import path from 'path';
+import { promises as fs } from "fs";
+import path from "path";
+import { LaptopFilterProvider } from "@/context/LaptopFilterContext";
 
-export async function fetchLaptops(): Promise<Laptop[]> {
+import { LaptopFilters, Search, Brand, LaptopLabel } from "@/components/LaptopFilters";
+
+
+export async function fetchLaptopsFromFile(): Promise<Laptop[]> {
   try {
-    const filePath = path.join(process.cwd(), 'src/app','laptops.json');
-    const jsonData = await fs.readFile(filePath, 'utf-8');
+    const filePath = path.join(process.cwd(), "src/app", "laptops.json");
+    const jsonData = await fs.readFile(filePath, "utf-8");
     const data = JSON.parse(jsonData);
     return data as Laptop[];
   } catch (error) {
@@ -23,7 +26,7 @@ export async function fetchLaptops(): Promise<Laptop[]> {
   }
 }
 
-async function fetchLaptops1(): Promise<Laptop[]> {
+async function fetchLaptopsFromServer(): Promise<Laptop[]> {
   try {
     const res = await fetch(driveUrl, {
       cache: "no-store",
@@ -41,17 +44,22 @@ async function fetchLaptops1(): Promise<Laptop[]> {
 }
 
 export default async function Home() {
-  const laptops: Laptop[] = await fetchLaptops();
+  const laptops: Laptop[] = await fetchLaptopsFromFile();
 
   return (
     <>
-    <Navbar/>
-    <main className="min-h-screen p-6 bg-gray-100 dark:bg-gray-900">
-      <h1 className="text-3xl font-bold mb-8 text-center">Latest Laptops</h1>
+      <Navbar />
+      <LaptopFilterProvider laptops={laptops}>
+        <main className="min-h-screen p-6 bg-gray-800 dark:bg-gray-900">
+          <LaptopFilters>
+            <Search/>
+            <Brand/>
+            <LaptopLabel/>
+          </LaptopFilters>
 
-      <LaptopList laptops={laptops}/>
-    </main>
+          <LaptopList />
+        </main>
+      </LaptopFilterProvider>
     </>
   );
 }
-

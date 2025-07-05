@@ -1,11 +1,10 @@
 // LaptopList.tsx
 "use client"; // ✅ Required when using Framer Motion or browser hooks
 
-import React, { useEffect, useMemo, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import LaptopCard from "@/components/LaptopCard";
-import { Laptop } from "@/app/type"; // Or correct path
-import LaptopSearchComponent from "./LaptopSearchComponent";
+import { useLaptopFilter } from "@/context/LaptopFilterContext";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -17,21 +16,17 @@ const containerVariants = {
   },
 };
 
-type LaptopListProps = {
-  laptops: Laptop[];
-};
 
-const LaptopList: React.FC<LaptopListProps> = ({ laptops }) => {
-  const [filteredLaptops, setFilteredLaptops] = useState(laptops);
+const LaptopList = () => {
+  const { filteredLaptops } = useLaptopFilter();
   
 
   return (
     <div>
-      {laptops.length === 0 ? (
+      {filteredLaptops.length === 0 ? (
         <p className="text-center text-gray-400">No laptops available at the moment.</p>
       ) : (
         <>
-        <LaptopSearchComponent laptops={laptops} setFilteredLaptops={setFilteredLaptops}/>
         <motion.div
           variants={containerVariants}
           initial="hidden"

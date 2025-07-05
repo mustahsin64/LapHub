@@ -22,51 +22,42 @@ export default function Navbar() {
 
     updateDateTime();
     const interval = setInterval(updateDateTime, 1000);
-
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <nav className="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 shadow-lg">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-        <div className="flex h-16 items-center justify-between">
+    <nav className="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Responsive flex container */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-4 gap-y-2">
 
-          {/* Left: Brand + Deal Badge */}
-          <div className="flex items-center space-x-3">
-            <h1
-              className="text-white text-2xl font-extrabold uppercase tracking-wide cursor-default select-none
-                         hover:text-cyan-400 transition-colors duration-300 ease-in-out"
-            >
+          {/* Left side: Logo and badge */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+            <h1 className="text-cyan-700 text-2xl font-extrabold uppercase tracking-wide cursor-default select-none hover:text-cyan-600 transition-colors duration-300 ease-in-out">
               LapHub
             </h1>
-
-            <span
-              className="inline-block bg-red-600 text-white text-xs font-semibold uppercase px-3 py-1 rounded-full
-                         select-none tracking-wide shadow-md"
-              title="Deal of the Day"
-            >
+            <span className="inline-block bg-red-600 text-white text-xs font-semibold uppercase px-3 py-1 rounded-full select-none tracking-wide shadow-md">
               Latest Releases
             </span>
           </div>
 
-          {/* Right: Date Time + GitHub link */}
-          <div className="flex items-center space-x-6">
-            <div className="text-white font-mono text-sm tracking-wider select-none min-w-[220px] text-right">
+          {/* Right side: Datetime and GitHub */}
+          <div className="flex items-center justify-between sm:justify-end gap-4 flex-wrap">
+            <div className="text-blue-700 font-mono text-sm tracking-wider select-none min-w-[200px] text-right">
               {dateTime}
             </div>
-
             <a
-              href="https://github.com/mustahsin64/LapHub" // replace with your repo URL
+              href="https://github.com/mustahsin64/LapHub"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Repository"
-              className="text-white hover:text-cyan-400 transition-colors duration-300 ease-in-out"
+              className="text-black hover:text-blue-700 transition-colors duration-300 ease-in-out"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
                 viewBox="0 0 24 24"
-                className="w-7 h-7"
+                className="w-6 h-6 sm:w-7 sm:h-7"
                 aria-hidden="true"
               >
                 <path
@@ -77,7 +68,6 @@ export default function Navbar() {
               </svg>
             </a>
           </div>
-
         </div>
       </div>
     </nav>
