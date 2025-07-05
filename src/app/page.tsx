@@ -1,10 +1,9 @@
-import LaptopCard from "@/components/LaptopCard";
 import { Laptop } from "./type";
 import LaptopList from "@/components/LaptopList";
 import Navbar from "@/components/Navbar";
 
 const url = "https://laphub-backend.onrender.com/api/laptops";
-const driveUrl =
+//const driveUrl =
   "https://drive.google.com/uc?export=download&id=1AKVuz1MAdh-y7TZW07oOACIbSb_uR7ee";
 
 import { promises as fs } from "fs";
