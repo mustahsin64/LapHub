@@ -12,17 +12,17 @@ import { LaptopFilterProvider } from "@/context/LaptopFilterContext";
 import { LaptopFilters, Search, Brand, LaptopLabel } from "@/components/LaptopFilters";
 
 
-export async function fetchLaptopsFromFile(): Promise<Laptop[]> {
-  try {
-    const filePath = path.join(process.cwd(), "src/app", "laptops.json");
-    const jsonData = await fs.readFile(filePath, "utf-8");
-    const data = JSON.parse(jsonData);
-    return data as Laptop[];
-  } catch (error) {
-    console.error("Error reading laptops.json:", error);
-    return [];
-  }
-}
+// export async function fetchLaptopsFromFile(): Promise<Laptop[]> {
+//   try {
+//     const filePath = path.join(process.cwd(), "src/app", "laptops.json");
+//     const jsonData = await fs.readFile(filePath, "utf-8");
+//     const data = JSON.parse(jsonData);
+//     return data as Laptop[];
+//   } catch (error) {
+//     console.error("Error reading laptops.json:", error);
+//     return [];
+//   }
+// }
 
 async function fetchLaptopsFromServer(): Promise<Laptop[]> {
   try {
