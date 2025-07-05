@@ -126,6 +126,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 👤 Author
 
-Made with ❤️ by [Your Name](https://github.com/mustahsin64/)
+Made with ❤️ by [Mustahsinul Moula](https://github.com/mustahsin64/)
 
 [![GitHub](https://img.shields.io/badge/View%20on-GitHub-black?logo=github)](https://github.com/mustahsin64/LapHub)

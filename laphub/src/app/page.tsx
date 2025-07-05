@@ -8,7 +8,22 @@ import Navbar from "@/components/Navbar";
 const url = "https://laphub-backend.onrender.com/api/laptops";
 const driveUrl = "https://drive.google.com/uc?export=download&id=1AKVuz1MAdh-y7TZW07oOACIbSb_uR7ee";
 
-async function fetchLaptops(): Promise<Laptop[]> {
+import { promises as fs } from 'fs';
+import path from 'path';
+
+export async function fetchLaptops(): Promise<Laptop[]> {
+  try {
+    const filePath = path.join(process.cwd(), 'src/app','laptops.json');
+    const jsonData = await fs.readFile(filePath, 'utf-8');
+    const data = JSON.parse(jsonData);
+    return data as Laptop[];
+  } catch (error) {
+    console.error("Error reading laptops.json:", error);
+    return [];
+  }
+}
+
+async function fetchLaptops1(): Promise<Laptop[]> {
   try {
     const res = await fetch(driveUrl, {
       cache: "no-store",
