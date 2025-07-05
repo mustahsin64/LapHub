@@ -78,7 +78,7 @@ Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-![Screenshot of the app](public/images/page1.png)
+![Screenshot of the app](public/page1.png)
 
 ## 🔗 Live Data Source
 
