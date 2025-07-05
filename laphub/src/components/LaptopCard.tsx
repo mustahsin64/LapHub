@@ -17,6 +17,7 @@ type Props = {
   likeCount: number;
   createdAt: string;
   newRelease: boolean;
+  link: string;
 };
 
 export default function LaptopCard({
@@ -31,6 +32,7 @@ export default function LaptopCard({
   likeCount,
   createdAt,
   newRelease,
+  link,
 }: Props) {
   // Intersection Observer hook to detect when card enters viewport
   const { ref, inView } = useInView({
@@ -103,6 +105,16 @@ export default function LaptopCard({
 
           <div className="text-xs text-gray-400 mt-2">
   ❤️ {likeCount} • Added on {new Date(createdAt).toISOString().slice(0, 10)}
+</div>
+<div className="mt-3 flex justify-end">
+  <a
+    href={link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-sm text-blue-600 hover:underline font-medium"
+  >
+    See Details →
+  </a>
 </div>
 
         </CardContent>

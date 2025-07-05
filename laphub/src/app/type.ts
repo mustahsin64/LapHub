@@ -11,4 +11,5 @@ export interface Laptop {
   likeCount: number;
   createdAt: string;
   newRelease: boolean;
+  link:string;
 }

@@ -28,7 +28,7 @@ export async function fetchLaptopsFromFile(): Promise<Laptop[]> {
 
 async function fetchLaptopsFromServer(): Promise<Laptop[]> {
   try {
-    const res = await fetch(driveUrl, {
+    const res = await fetch(url, {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -44,7 +44,7 @@ async function fetchLaptopsFromServer(): Promise<Laptop[]> {
 }
 
 export default async function Home() {
-  const laptops: Laptop[] = await fetchLaptopsFromFile();
+  const laptops: Laptop[] = await fetchLaptopsFromServer();
 
   return (
     <>
