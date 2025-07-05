@@ -5,8 +5,8 @@ import Navbar from "@/components/Navbar";
 const url = "https://laphub-backend.onrender.com/api/laptops";
 //const driveUrl = "https://drive.google.com/uc?export=download&id=1AKVuz1MAdh-y7TZW07oOACIbSb_uR7ee";
 
-import { promises as fs } from "fs";
-import path from "path";
+// import { promises as fs } from "fs";
+// import path from "path";
 import { LaptopFilterProvider } from "@/context/LaptopFilterContext";
 
 import { LaptopFilters, Search, Brand, LaptopLabel } from "@/components/LaptopFilters";
